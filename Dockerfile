@@ -15,16 +15,26 @@ RUN apt-get update &&  \
     build-essential \
     ca-certificates \
     curl \
+    fontconfig \
+    fonts-ipaexfont \
+    fonts-ipafont \
+    fonts-ricty-diminished \
+    fonts-roboto \
+    fonts-takao \
     git \
+    gnupg \
     gosu \
     libssl-dev \
     locales \
     pkg-config \
+    software-properties-common \
     ssh \
+    wget \
     sudo && \
     locale-gen ja_JP.UTF-8 && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/* 
+    rm -rf /var/lib/apt/lists/* && \
+    fc-cache -fv
 
 RUN echo 'Defaults visiblepw' >> /etc/sudoers && \
     echo %$DEFAULT_GROUP' ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers && \
